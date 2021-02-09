@@ -80,9 +80,14 @@ public class Date implements Comparable<Date> {
         day = calendar.get(Calendar.DATE);
     }
 
+    @Override
+    public int compareTo(Date date) {
+        return -1;
+    } //return 1, 0, or -1
+
     /**
      Helper method which returns an integer representing the 'year' data member of the Date class.
-     @return year the book was published in.
+     @return year the employee started.
      */
     public int getYear(){
         return year;
@@ -98,7 +103,7 @@ public class Date implements Comparable<Date> {
 
     /**
      Helper method which returns an integer representing the 'day' data member of the Date class.
-     @return day the book was published on.
+     @return day the employee started.
      */
     public int getDay(){
         return day;
@@ -187,8 +192,4 @@ public class Date implements Comparable<Date> {
         return true;
     }
 
-    @Override
-    public int compareTo(Date date) {
-        return -1;
-    } //return 1, 0, or -1
 }

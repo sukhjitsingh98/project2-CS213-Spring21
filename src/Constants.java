@@ -34,7 +34,7 @@ public final class Constants {
     //Constants for date substring positions
     public static final int MINIMUM_DATE_SUBSTRING_LENGTH = 5;
 
-public static final int SINGLE_DIGIT_MONTH_DASH_POSITION = 1;
+    public static final int SINGLE_DIGIT_MONTH_DASH_POSITION = 1;
     public static final int DOUBLE_DIGIT_MONTH_DASH_POSITION = 2;
     public static final int SINGLE_DIGIT_DAY_DASH_POSITION1 = 3;
     public static final int SINGLE_DIGIT_DAY_DASH_POSITION2 = 4;
