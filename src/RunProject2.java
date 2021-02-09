@@ -8,7 +8,6 @@ public class RunProject2 {
      @param args Unused parameter
      */
     public static void main(String[] args) {
-        //Uncomment when ready
-        //new PayrollProcessing().run();
+        new PayrollProcessing().run();
     }
 }
