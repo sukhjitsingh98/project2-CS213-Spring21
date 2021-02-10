@@ -60,4 +60,7 @@ public final class Constants {
     public static final int CENTENNIAL = 100;
     public static final int QUARTERCENTENNIAL = 400;
 
+    //Constants for company class
+    public static final int EMPLOYEE_NOT_FOUND = -1;
+
 }

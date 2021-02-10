@@ -3,7 +3,15 @@ public class Company {
     private int numEmployee;
 
     private int find(Employee employee) {
-        return -1;
+        //Iterate through the employee list and compare the employees until they match.
+        for(int i = 0; i < numEmployee; i++) {
+            if(employee.equals(emplist[i])){
+                return i;
+            }
+        }
+
+        //if its not found, return -1.
+        return Constants.EMPLOYEE_NOT_FOUND;
     }
     private void grow() { }
     public boolean add(Employee employee) {
