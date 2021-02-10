@@ -62,5 +62,7 @@ public final class Constants {
 
     //Constants for company class
     public static final int EMPLOYEE_NOT_FOUND = -1;
+    public static final int STARTING_ARRAY_SIZE = 4;
+    public static final int INCREASE_ARRAY_BY = 4;
 
 }

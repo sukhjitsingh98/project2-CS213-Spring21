@@ -13,7 +13,16 @@ public class Company {
         //if its not found, return -1.
         return Constants.EMPLOYEE_NOT_FOUND;
     }
-    private void grow() { }
+    private void grow() {
+        Employee[] newArray = new Employee[emplist.length + Constants.INCREASE_ARRAY_BY];
+        //copy the current employees.
+        for(int i = 0; i < numEmployee; i++) {
+            newArray[i] = emplist[i];
+        }
+        //reassign emplist so that it refers to newArray.
+        emplist = newArray;
+    }
+
     public boolean add(Employee employee) {
         return false;
     } //check the profile before adding
