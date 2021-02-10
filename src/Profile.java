@@ -19,6 +19,7 @@ public class Profile {
         return false;
     }
 
+    //constructor
     Profile(String name, String department, String dateHired){
         this.name = name;
         this.department = department;
@@ -43,8 +44,8 @@ public class Profile {
     //temporary testing
     public static void main(String[] args) {
         Profile test1 = new Profile("Last,First", "CS", "01/22/1999");
-        Profile test2 = new Profile("Obama,Barack", "Math", "01/22/2008");
-        Profile test3 = new Profile("Obama,Barack", "Math", "01/22/2008");
+        Profile test2 = new Profile("Obama,Barack", "ECE", "01/22/2008");
+        Profile test3 = new Profile("Obama,Barack", "ECE", "01/22/2008");
         System.out.println(test2.toString());
         System.out.println(test2.equals(test1));
         System.out.println(test2.equals(test3));
