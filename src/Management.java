@@ -1,2 +1,2 @@
-public class Management {
+public class Management extends Fulltime {
 }
