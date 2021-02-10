@@ -9,9 +9,21 @@ public class Profile {
         return result;
     }
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj) {  //compare name, department and dateHired
+        //explicit casting
+        Profile temp = (Profile) obj;
+        if(name.equals(temp.name) &&  department.equals(temp.getDepartment()) && dateHired.compareTo(temp.getDateHired()) == -1){ //set to -1 until compareTo is implemented and is switched to zero.
+            return true;
+        }
+
         return false;
-    } //compare name, department and dateHired
+    }
+
+    Profile(String name, String department, String dateHired){
+        this.name = name;
+        this.department = department;
+        this.dateHired = new Date(dateHired);
+    }
 
     //returns the name of the employees profile
     public String getName() {
@@ -27,5 +39,16 @@ public class Profile {
     public Date getDateHired() {
         return dateHired;
     }
+
+    //temporary testing
+    public static void main(String[] args) {
+        Profile test1 = new Profile("Last,First", "CS", "01/22/1999");
+        Profile test2 = new Profile("Obama,Barack", "Math", "01/22/2008");
+        Profile test3 = new Profile("Obama,Barack", "Math", "01/22/2008");
+        System.out.println(test2.toString());
+        System.out.println(test2.equals(test1));
+        System.out.println(test2.equals(test3));
+    }
+
 }
 
