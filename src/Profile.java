@@ -59,12 +59,13 @@ public class Profile {
         Employee emp2 = t2;
         System.out.println("Employee two: " + emp2.toString());
 
-//        Management  t3 = new Management("Jefferson, Thomas", "ECE", "03/22/2020","50000","Manager");
+//        Management  t3 = new Management("Jefferson, Thomas", "ECE", "03/22/2020","50000","1");
 //        Employee emp3 = t3;
 //        System.out.println("Employee three: " + emp3.toString());
 
         Company company = new Company();
         company.add(emp1);
+        company.print();
         company.add(emp2);
         company.print();
     }
