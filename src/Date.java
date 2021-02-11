@@ -80,9 +80,50 @@ public class Date implements Comparable<Date> {
         day = calendar.get(Calendar.DATE);
     }
 
+    /**
+     Method which returns an integer representing if the date value of the Date object is greater than, equal to, or
+     less than the given Date object value. By greater it means that one date is older than the other.
+     Example: 2/10/2020 > 3/5/2020. Here the first date is older than the second.
+     @return -1, 0, or 1 as this object is less than, equal to, or greater than the given Date object.
+     */
     @Override
     public int compareTo(Date date) {
-        return -1;
+        //If the year of this Date object is greater than the year of the given Date object return -1
+        //Example 1999 > 1998
+        if(this.year > date.getYear()){
+            return -1;
+        }
+        else if(this.year == date.getYear()){
+            /*If same year but the month of this Date object is greater than the month of the given Date object
+             return -1 */
+            if(this.month > date.getMonth()){
+                return -1;
+            }
+            else if(this.month == date.getMonth()){
+                //If same month but day of this Date object is greater than the day of the given Date object return -1
+                if (this.day > date.getDay()){
+                    return -1;
+                }
+                else if (this.day == date.getDay()){
+                    return 0;
+                }
+                //If same month but day of this Date object is less than the day of the given Date object return 1
+                else if (this.day < date.getDay()){
+                    return 1;
+                }
+            }
+            /*If same year but the month of this Date object is less than the month of the given Date object return 1 */
+            else if(this.month < date.getMonth()){
+                return 1;
+            }
+        }
+        //If the year of this Date object is less than the year of the given Date object return 1
+        //Example 1998 < 1999
+        else if(this.year < date.getYear()) {
+            return 1;
+        }
+
+        return 0;
     } //return 1, 0, or -1
 
     /**
