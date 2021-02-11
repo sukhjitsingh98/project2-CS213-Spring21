@@ -114,12 +114,67 @@ public class Company {
     } //set working hours for a part time
 
     public void processPayments() { } //process payments for all employees
+
     //print earning statements for all employees
     public void print() {
         for(int i = 0; i < numEmployee; i++){
             System.out.println(emplist[i].toString());
         }
     }
+
     public void printByDepartment() { } //print earning statements by department
-    public void printByDate() { } //print earning statements by date hired
+
+    private boolean compareDateHired(Employee employee1, Employee employee2){
+        //If employee1 year is greater than employee2 year, return true
+        if(employee1.getDateHired().getYear() > employee2.getDateHired().getYear()){
+            return true;
+        }
+        else if(employee1.getDateHired().getYear() == employee2.getDateHired().getYear()){
+            //If same year and employee1 month is greater than employee2 month, return true
+            if(employee1.getDateHired().getMonth() > employee2.getDateHired().getMonth()){
+                return true;
+            }
+            else if(employee1.getDateHired().getMonth() == employee2.getDateHired().getMonth()){
+                //If same year and month and employee1 day is greater than employee2 hired day, return true
+                if(employee1.getDateHired().getDay()>employee2.getDateHired().getDay()){
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        //Otherwise employee2 has the greater hired date
+        return false;
+    }
+
+    /**
+     Sort the bag of employees from oldest to most recent.
+     */
+    private void sortEmployeeHiredDateAscending(){
+        for (int i = 1; i < emplist.length; i++) {
+            Employee[] tempList = new Employee[1];
+            tempList[0] = emplist[i];
+            int j = i - 1;
+            while(j >= 0 && emplist[j] != null && tempList[0] != null && compareDateHired(emplist[j],tempList[0]) == true) {
+                emplist[j + 1] = emplist[j];
+                j = j - 1;
+            }
+            emplist[j + 1] = tempList[0];
+        }
+    }
+
+    /**
+     Print the books in the bag from oldest to newest.
+     call the sort by date method to sort and the print method to print.
+     */
+    public void printByDate() {  //print earning statements by date hired
+        if (numEmployee > 1) {
+            //call the sorting method
+            sortEmployeeHiredDateAscending();
+        }
+        print();
+    }
+
+
+
 }

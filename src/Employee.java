@@ -19,4 +19,8 @@ public class Employee {
         return false;
     }
 
+    public Date getDateHired(){
+        return profile.getDateHired();
+    }
+
 }

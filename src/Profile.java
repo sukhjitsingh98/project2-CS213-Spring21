@@ -53,11 +53,9 @@ public class Profile {
 
         Parttime t1 = new Parttime("lastname, firstname", "ECE", "1/01/2020","22","40");
         Employee emp1 = t1;
-        System.out.println("Employee one: " + emp1.toString());
 
         Fulltime t2 = new Fulltime("Washington, George", "CS", "02/02/2005", "90000");
         Employee emp2 = t2;
-        System.out.println("Employee two: " + emp2.toString());
 
 //        Management  t3 = new Management("Jefferson, Thomas", "ECE", "03/22/2020","50000","1");
 //        Employee emp3 = t3;
@@ -65,9 +63,9 @@ public class Profile {
 
         Company company = new Company();
         company.add(emp1);
-        company.print();
         company.add(emp2);
         company.print();
+        company.printByDate();
     }
 
 }
