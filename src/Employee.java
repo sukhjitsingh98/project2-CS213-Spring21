@@ -12,7 +12,8 @@ public class Employee {
     }
     @Override
     public boolean equals(Object obj) {
-        if (profile.equals(obj)){
+        Employee employee = (Employee) obj;
+        if (profile.equals(employee.profile)){
             return true;
         }
         return false;
