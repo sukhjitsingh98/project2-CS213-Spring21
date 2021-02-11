@@ -95,7 +95,7 @@ public class Company {
         //find the book employee the helper method
         int employeeIndex = find(employee);
 
-        ////if the index equals -1 than the employee is not in the system and the working hours cannot be set.
+        //if the index equals -1 than the employee is not in the system and the working hours cannot be set.
         if(employeeIndex == Constants.EMPLOYEE_NOT_FOUND){
             return false;
         }
@@ -103,8 +103,9 @@ public class Company {
             //Check if the employee is a part time worker
             if (emplist[employeeIndex] instanceof Parttime) {
                 Parttime parttime = (Parttime) emplist[employeeIndex];
-                //A bit confused since they didnt give us an option to actually set the hours.
-                //parttime.setWorkingHours();
+                //NOTE: In the PayrollProcessing class just make a new object that stores the working hours and pass
+                // that as a parameter into this method (DELETE THIS NOTE WHEN DONE).
+                parttime.setWorkingHours(((Parttime) employee).getWorkingHours());
                 return true;
             }
             else{

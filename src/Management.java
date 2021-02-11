@@ -4,7 +4,7 @@ public class Management extends Fulltime {
     private float annualCompensation = setCompensation();
 
     public Management(String name, String department, String dateHired, String annualSalary, String role){
-        super(name, department, dateHired, annualSalary, true);
+        super(name, department, dateHired, annualSalary);
         this.role = Integer.parseInt(role);
     }
 
@@ -14,18 +14,21 @@ public class Management extends Fulltime {
         String result = "::" + managementRole() + " Compensation " + Float.toString(singlePayPeriodCompensation);
         return super.toString() + result;
     }
+
     @Override
     public boolean equals(Object obj) {
-        //If the super class Data members are equal check if the Management data members are equal
-        if(super.equals(obj)){
-            if (obj instanceof Management){
-                Management management = (Management) obj;
-                if (management.getAnnualCompensation() == annualCompensation){
-                    return true;
-                }
-                return false;
-            }
+        //Check if super class is equal to the given object
+        if(!super.equals(obj)) {
             return false;
+        }
+        //Check if the given object is a Management object
+        else if (!(obj instanceof Management)) {
+            return false;
+        }
+        //Type cast the given object and check if its data members are equal to this object's data members
+        Management management = (Management) obj;
+        if (management.getAnnualCompensation() == annualCompensation){
+            return true;
         }
         return false;
     }
@@ -40,6 +43,7 @@ public class Management extends Fulltime {
     @Override
     */
     public void calculatePayment() {
+
         singlePayPeriodCompensation = getAnnualCompensation()/Constants.TOTAL_PAY_PERIODS;
     }
 

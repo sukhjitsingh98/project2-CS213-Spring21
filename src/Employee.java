@@ -1,16 +1,9 @@
 public class Employee {
     private Profile profile;
-    //These may not be needed
-    private boolean fulltime;
-    private boolean parttime;
-    private boolean management;
 
     //constructor
-    Employee(String name, String department, String dateHired, boolean fulltime, boolean parttime, boolean management){
+    Employee(String name, String department, String dateHired){
         this.profile = new Profile(name,department,dateHired);
-        this.fulltime = fulltime;
-        this.parttime = parttime;
-        this.management = management;
     }
 
     @Override
@@ -25,15 +18,4 @@ public class Employee {
         return false;
     }
 
-    public boolean isFulltime() {
-        return fulltime;
-    }
-
-    public boolean isParttime() {
-        return parttime;
-    }
-
-    public boolean isManagement() {
-        return management;
-    }
 }

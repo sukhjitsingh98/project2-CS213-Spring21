@@ -1,11 +1,11 @@
 public class Parttime extends Employee {
     private float hourlyRate;
-    private int workingHours;
+    private float workingHours;
 
-    public Parttime(String name, String department, String dateHired, String hourlyRate){
-        super(name, department, dateHired, false, true, false);
+    public Parttime(String name, String department, String dateHired, String hourlyRate, String workingHours){
+        super(name, department, dateHired);
         this.hourlyRate = Float.parseFloat(hourlyRate);
-        this.workingHours = 0;
+        this.workingHours = Float.parseFloat(workingHours);
     }
 
     @Override
@@ -14,18 +14,21 @@ public class Parttime extends Employee {
     }
     @Override
     public boolean equals(Object obj) {
-        //If the employee profile is the same check if the Parttime data members are equal
-        if(super.equals(obj)){
-            if (obj instanceof Parttime){
-                Parttime parttime = (Parttime) obj;
-                if (parttime.getHourlyRate() == hourlyRate && parttime.getWorkingHours() == workingHours){
-                    return true;
-                }
-                return false;
-            }
+        //Check if super class is equal to the given object
+        if(!super.equals(obj)) {
             return false;
         }
+        //Check if the given object is a Parttime object
+        else if (!(obj instanceof Parttime)) {
+            return false;
+        }
+        //Type cast the given object and check if its data members are equal to this object's data members
+        Parttime parttime = (Parttime) obj;
+        if (parttime.getHourlyRate() == hourlyRate && parttime.getWorkingHours() == workingHours){
+            return true;
+        }
         return false;
+
     }
 
     /*
@@ -35,11 +38,11 @@ public class Parttime extends Employee {
     */
 
     //Maybe int parameter, maybe String, we shall decide when the time comes for implementation
-    public void setWorkingHours(int workingHours) {
+    public void setWorkingHours(float workingHours) {
         this.workingHours = workingHours;
     }
 
-    public int getWorkingHours(){
+    public float getWorkingHours(){
         return workingHours;
     }
 
