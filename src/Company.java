@@ -100,17 +100,11 @@ public class Company {
             return false;
         }
         else {
-            //Check if the employee is a part time worker
-            if (emplist[employeeIndex] instanceof Parttime) {
-                Parttime parttime = (Parttime) emplist[employeeIndex];
-                //NOTE: In the PayrollProcessing class just make a new object that stores the working hours and pass
-                // that as a parameter into this method (DELETE THIS NOTE WHEN DONE).
-                parttime.setWorkingHours(((Parttime) employee).getWorkingHours());
-                return true;
-            }
-            else{
-                return false;
-            }
+            Parttime parttime = (Parttime) emplist[employeeIndex];
+            //NOTE: In the PayrollProcessing class just make a new object that stores the working hours and pass
+            // that as a parameter into this method (DELETE THIS NOTE WHEN DONE).
+            parttime.setWorkingHours(((Parttime) employee).getWorkingHours());
+            return true;
         }
     } //set working hours for a part time
 
