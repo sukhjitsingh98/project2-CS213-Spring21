@@ -1,5 +1,6 @@
 public class Employee {
     private Profile profile;
+    //These may not be needed
     private boolean fulltime;
     private boolean parttime;
     private boolean management;
@@ -14,11 +15,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "";
+        return profile.toString();
     }
     @Override
     public boolean equals(Object obj) {
-
+        if (profile.equals(obj)){
+            return true;
+        }
         return false;
     }
 
