@@ -53,6 +53,8 @@ public class Profile {
 
         Parttime t1 = new Parttime("last, first", "ECE", "1/01/2020","22","40");
         System.out.println(t1.toString());
+        Employee emp1 = t1;
+        System.out.println("emp1:  " + emp1.toString());
 
     }
 

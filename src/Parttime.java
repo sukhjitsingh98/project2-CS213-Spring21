@@ -14,7 +14,7 @@ public class Parttime extends Employee {
         String result =
                 "Payment $" + "(payment number)" + "::PART TIME::Hourly Rate $" + getHourlyRate() + "::Hours worked this period: " +(int)getWorkingHours();
 
-        return result;
+        return super.toString() + result;
 
     }
     @Override
