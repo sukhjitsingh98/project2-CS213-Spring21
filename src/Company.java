@@ -164,17 +164,17 @@ public class Company {
     }
 
     /**
-     Print the books in the bag from oldest to newest.
-     call the sort by date method to sort and the print method to print.
+     Print the bag of employees from oldest to newest.
+     call the sort by date method to sort and then the print method to print.
      */
     public void printByDate() {  //print earning statements by date hired
         if (numEmployee > 1) {
             //call the sorting method
             sortEmployeeHiredDateAscending();
         }
+        //call the print method once sorted.
         print();
     }
-
 
 
 }
