@@ -65,4 +65,12 @@ public final class Constants {
     public static final int STARTING_ARRAY_SIZE = 4;
     public static final int INCREASE_ARRAY_BY = 4;
 
+    //Constants for management class
+    public static final int MANAGER = 1;
+    public static final int DEPARTMENT_HEAD = 2;
+    public static final int DIRECTOR = 3;
+    public static final int MANAGER_COMPENSATION = 5000;
+    public static final int DEPARTMENT_HEAD_COMPENSATION = 5000;
+    public static final int DIRECTOR_COMPENSATION = 5000;
+
 }

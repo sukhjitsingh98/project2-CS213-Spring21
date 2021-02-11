@@ -30,6 +30,10 @@ public class Company {
         return false;
     } //maintain the original sequence
     public boolean setHours(Employee employee) {
+        if (employee.isParttime()){
+            //A bit confused on how to set the hours rn
+            return true;
+        }
         return false;
     } //set working hours for a part time
     public void processPayments() { } //process payments for all employees

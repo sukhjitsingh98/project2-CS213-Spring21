@@ -12,7 +12,7 @@ public class Profile {
     public boolean equals(Object obj) {  //compare name, department and dateHired
         //explicit casting
         Profile temp = (Profile) obj;
-        if(name.equals(temp.name) &&  department.equals(temp.getDepartment()) && dateHired.compareTo(temp.getDateHired()) == -1){ //set to -1 until compareTo is implemented and is switched to zero.
+        if(name.equals(temp.name) &&  department.equals(temp.getDepartment()) && dateHired.compareTo(temp.getDateHired()) == 0){
             return true;
         }
 
