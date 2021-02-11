@@ -10,7 +10,7 @@ public class Fulltime extends Employee {
     @Override
     public String toString() {
         String result =
-                "Payment " + "insert payment here" + "::FULL TIME::Annual Salary " + Float.toString(annualSalary);
+                "Payment " + "insert payment here" + "::FULL TIME::Annual Salary $" + Float.toString(annualSalary);
         return super.toString() + result;
     }
     @Override
