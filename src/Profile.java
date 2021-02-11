@@ -63,6 +63,10 @@ public class Profile {
 //        Employee emp3 = t3;
 //        System.out.println("Employee three: " + emp3.toString());
 
+        Company company = new Company();
+        company.add(emp1);
+        company.add(emp2);
+        company.print();
     }
 
 }

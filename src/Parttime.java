@@ -1,4 +1,5 @@
 public class Parttime extends Employee {
+
     private float hourlyRate;
     private float workingHours;
 

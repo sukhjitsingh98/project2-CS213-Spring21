@@ -2,6 +2,11 @@ public class Company {
     private Employee[] emplist;
     private int numEmployee;
 
+    Company() {
+        emplist = new Employee[Constants.STARTING_ARRAY_SIZE];
+        numEmployee = 0;
+    }
+
     /**
      Finds the index of the given employee within the employee array.
      If the given employee is not in the array then return a negative one.
@@ -109,7 +114,12 @@ public class Company {
     } //set working hours for a part time
 
     public void processPayments() { } //process payments for all employees
-    public void print() { } //print earning statements for all employees
+    //print earning statements for all employees
+    public void print() {
+        for(int i = 0; i < numEmployee; i++){
+            System.out.println(emplist[i].toString());
+        }
+    }
     public void printByDepartment() { } //print earning statements by department
     public void printByDate() { } //print earning statements by date hired
 }
