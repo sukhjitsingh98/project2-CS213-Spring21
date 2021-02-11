@@ -57,15 +57,22 @@ public class Profile {
         Fulltime t2 = new Fulltime("Washington, George", "CS", "02/02/2005", "90000");
         Employee emp2 = t2;
 
+        Fulltime t4 = new Fulltime("dodo, name", "IT", "02/02/2001", "10");
+        Employee emp4 = t4;
+
 //        Management  t3 = new Management("Jefferson, Thomas", "ECE", "03/22/2020","50000","1");
 //        Employee emp3 = t3;
 //        System.out.println("Employee three: " + emp3.toString());
 
         Company company = new Company();
+        company.add(emp4);
         company.add(emp1);
         company.add(emp2);
+        System.out.println("Normal Print:");
         company.print();
-        company.printByDate();
+        //company.printByDate();
+        System.out.println("Department Print:");
+        company.printByDepartment();
     }
 
 }

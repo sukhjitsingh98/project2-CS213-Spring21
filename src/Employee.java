@@ -23,4 +23,8 @@ public class Employee {
         return profile.getDateHired();
     }
 
+    public String getDepartment(){
+        return profile.getDepartment();
+    }
+
 }

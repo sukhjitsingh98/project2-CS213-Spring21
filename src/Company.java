@@ -122,7 +122,33 @@ public class Company {
         }
     }
 
-    public void printByDepartment() { } //print earning statements by department
+
+    /**
+     Sort the bag from smallest serial number to largest.
+     */
+    private void sortEmployeeDepartment(){
+        for (int i = 1; i < emplist.length; i++) {
+            Employee[] tempList = new Employee[1];
+            tempList[0] = emplist[i];
+            int j = i - 1;
+            while(j >= 0 && emplist[j] != null && tempList[0] != null &&
+                    emplist[j].getDepartment().compareTo(tempList[0].getDepartment()) > 0) {
+                emplist[j + 1] = emplist[j];
+                j = j - 1;
+            }
+            emplist[j + 1] = tempList[0];
+        }
+    }
+
+    //print earning statements by department
+    //first CS, ECE, then IT
+    public void printByDepartment() {
+        if(numEmployee > 1) {
+            sortEmployeeDepartment();
+        }
+
+        print();
+    }
 
     private boolean compareDateHired(Employee employee1, Employee employee2){
         //If employee1 year is greater than employee2 year, return true
