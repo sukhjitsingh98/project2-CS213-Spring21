@@ -49,6 +49,11 @@ public class Profile {
         System.out.println(test2.toString());
         System.out.println(test2.equals(test1));
         System.out.println(test2.equals(test3));
+
+
+        Parttime t1 = new Parttime("last, first", "ECE", "1/01/2020","22","40");
+        System.out.println(t1.toString());
+
     }
 
 }

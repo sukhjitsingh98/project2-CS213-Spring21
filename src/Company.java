@@ -92,7 +92,7 @@ public class Company {
     } //maintain the original sequence
 
     public boolean setHours(Employee employee) {
-        //find the book employee the helper method
+        //find the employee index with the helper method
         int employeeIndex = find(employee);
 
         //if the index equals -1 than the employee is not in the system and the working hours cannot be set.

@@ -10,7 +10,12 @@ public class Parttime extends Employee {
 
     @Override
     public String toString() {
-        return "";
+
+        String result =
+                "Payment $" + "(payment number)" + "::PART TIME::Hourly Rate $" + getHourlyRate() + "::Hours worked this period: " +(int)getWorkingHours();
+
+        return result;
+
     }
     @Override
     public boolean equals(Object obj) {
@@ -49,4 +54,6 @@ public class Parttime extends Employee {
     public float getHourlyRate(){
         return hourlyRate;
     }
+
+
 }
