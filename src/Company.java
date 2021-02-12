@@ -141,12 +141,13 @@ public class Company {
     }
 
     //print earning statements by department
-    //first CS, ECE, then IT
+    //CS, ECE, IT, alphabetical order.
     public void printByDepartment() {
         if(numEmployee > 1) {
+            //first sort the employees by department
             sortEmployeeDepartment();
         }
-
+        //call the print statement
         print();
     }
 
