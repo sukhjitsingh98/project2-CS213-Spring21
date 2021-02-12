@@ -151,29 +151,6 @@ public class Company {
         print();
     }
 
-    private boolean compareDateHired(Employee employee1, Employee employee2){
-        //If employee1 year is greater than employee2 year, return true
-        if(employee1.getDateHired().getYear() > employee2.getDateHired().getYear()){
-            return true;
-        }
-        else if(employee1.getDateHired().getYear() == employee2.getDateHired().getYear()){
-            //If same year and employee1 month is greater than employee2 month, return true
-            if(employee1.getDateHired().getMonth() > employee2.getDateHired().getMonth()){
-                return true;
-            }
-            else if(employee1.getDateHired().getMonth() == employee2.getDateHired().getMonth()){
-                //If same year and month and employee1 day is greater than employee2 hired day, return true
-                if(employee1.getDateHired().getDay()>employee2.getDateHired().getDay()){
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        //Otherwise employee2 has the greater hired date
-        return false;
-    }
-
     /**
      Sort the bag of employees from oldest to most recent.
      */
@@ -182,7 +159,8 @@ public class Company {
             Employee[] tempList = new Employee[1];
             tempList[0] = emplist[i];
             int j = i - 1;
-            while(j >= 0 && emplist[j] != null && tempList[0] != null && compareDateHired(emplist[j],tempList[0]) == true) {
+            while(j >= 0 && emplist[j] != null && tempList[0] != null && emplist[j].getDateHired().compareTo(tempList[0].getDateHired())
+                    == Constants.FIRST_DATE_LESS_THAN_SECOND) {
                 emplist[j + 1] = emplist[j];
                 j = j - 1;
             }

@@ -70,7 +70,8 @@ public class Profile {
         company.add(emp2);
         System.out.println("Normal Print:");
         company.print();
-        //company.printByDate();
+        System.out.println("Date print:");
+        company.printByDate();
         System.out.println("Department Print:");
         company.printByDepartment();
     }

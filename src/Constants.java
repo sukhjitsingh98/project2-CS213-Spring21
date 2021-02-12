@@ -64,6 +64,7 @@ public final class Constants {
     public static final int EMPLOYEE_NOT_FOUND = -1;
     public static final int STARTING_ARRAY_SIZE = 4;
     public static final int INCREASE_ARRAY_BY = 4;
+    public static final int FIRST_DATE_LESS_THAN_SECOND = -1;
 
     //Constants for employee payment calculation
     public static final float TOTAL_PAY_PERIODS = 26;
