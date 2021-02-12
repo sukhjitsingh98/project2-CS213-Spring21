@@ -25,18 +25,54 @@ public class PayrollProcessing {
                 break;
             }
 
-            else if(currentToken.equals("AP")) {
-                //use input.nextToken() and input.tokenCount to obtain following input from each line
+            //use input.nextToken() and input.tokenCount to obtain following input from each line
 
+            else if(currentToken.equals("AP") &&  input.countTokens() == 4|| currentToken.equals("AF") && input.countTokens() > 4 || currentToken.equals("AM") && input.countTokens() == 5) {
+                String name = input.nextToken();
+                String department = input.nextToken();
+                String date = input.nextToken();
+
+                //check the date format
+                if(new Date(date).isValid()) {
+                    //now add the specific token
+                    if(currentToken.equals("AP")){
+                        Parttime parttime = new Parttime(name, department, date, input.nextToken(), "0");
+                        //add it and check the return value
+                        if(company.add(parttime)) {
+                            System.out.println("Employee added.");
+                        }
+                        else{
+                            System.out.println("Employee is already in the list.");
+                        }
+                    }
+
+                    else if(currentToken.equals("AF")) {
+                        Fulltime fulltime = new Fulltime(name, department, date, input.nextToken());
+                        if(company.add(fulltime)) {
+                            System.out.println("Employee added.");
+                        }
+                        else{
+                            System.out.println("Employee is already in the list.");
+                        }
+                    }
+
+                    else if(currentToken.equals("AM")) {
+                        String salary = input.nextToken();
+                        Management management = new Management(name, department, date, salary, input.nextToken());
+                        if(company.add(management)) {
+                            System.out.println("Employee added.");
+                        }
+                        else{
+                            System.out.println("Employee is already in the list.");
+                        }
+                    }
+                }
+
+                else{
+                    System.out.println(date + " is not a valid date!");
+                }
             }
 
-            else if(currentToken.equals("AF")) {
-
-            }
-
-            else if(currentToken.equals("AM")) {
-
-            }
 
             else if(currentToken.equals("R")) {
 
