@@ -1,11 +1,12 @@
 public class Management extends Fulltime {
     private int role;
     private float singlePayPeriodCompensation;
-    private float annualCompensation = setCompensation();
+    private float annualCompensation;
 
     public Management(String name, String department, String dateHired, String annualSalary, String role){
         super(name, department, dateHired, annualSalary);
         this.role = Integer.parseInt(role);
+        this.annualCompensation = setCompensation();
     }
 
     @Override
@@ -43,8 +44,8 @@ public class Management extends Fulltime {
     @Override
     */
     public void calculatePayment() {
-
-        singlePayPeriodCompensation = getAnnualCompensation()/Constants.TOTAL_PAY_PERIODS;
+        //super.calculatePayment();
+        singlePayPeriodCompensation = annualCompensation/Constants.TOTAL_PAY_PERIODS;
     }
 
     private String managementRole(){
@@ -62,13 +63,13 @@ public class Management extends Fulltime {
 
     private float setCompensation(){
         if (managementRole().equals("Manager")){
-            annualCompensation = Constants.MANAGER_COMPENSATION;
+            return Constants.MANAGER_COMPENSATION;
         }
         else if (managementRole().equals("Department Head")){
-            annualCompensation = Constants.DEPARTMENT_HEAD_COMPENSATION;
+            return Constants.DEPARTMENT_HEAD_COMPENSATION;
         }
         else if (managementRole().equals("Director")){
-            annualCompensation = Constants.DIRECTOR_COMPENSATION;
+            return Constants.DIRECTOR_COMPENSATION;
         }
         return 0;
 

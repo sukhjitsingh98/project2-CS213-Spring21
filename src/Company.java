@@ -113,7 +113,12 @@ public class Company {
         }
     } //set working hours for a part time
 
-    public void processPayments() { } //process payments for all employees
+    public void processPayments() {
+        for(int i = 0; i < numEmployee; i++) {
+           // emplist[i].calculatePayment();
+        }
+
+    } //process payments for all employees
 
     //print earning statements for all employees
     public void print() {
