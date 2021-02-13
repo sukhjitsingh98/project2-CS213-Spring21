@@ -1,7 +1,6 @@
 public class Management extends Fulltime {
     private int role;
     private float singlePayPeriodCompensation;
-    private float totalPay;
     private float annualCompensation;
 
     public Management(String name, String department, String dateHired, String annualSalary, String role){
@@ -9,7 +8,6 @@ public class Management extends Fulltime {
         this.role = Integer.parseInt(role);
         annualCompensation = setCompensation();
         singlePayPeriodCompensation = 0;
-        totalPay = 0;
     }
 
     @Override
