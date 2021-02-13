@@ -34,62 +34,60 @@ public class PayrollProcessing {
                 String department = input.nextToken();
                 String date = input.nextToken();
 
-                //check the date format
-                if(new Date(date).isValid()) {
-                    //now add the specific token if the pay rate/salary is valid
-                    String payment = input.nextToken();
-                    if(Double.parseDouble(payment) < 0) {
-                        //Part time has a different message than full time.
-                        if(currentToken.equals("AP")) {
-                            System.out.println("Pay rate cannot be negative.");
-                        }
-                        else {
-                            System.out.println("Salary cannot be negative.");
-                        }
-                        continue;
-                    }
-
-                    if(currentToken.equals("AP")){
-                        Parttime parttime = new Parttime(name, department, date, payment, "0");
-                        //add it and check the return value
-                        if(company.add(parttime)) {
-                            System.out.println("Employee added.");
-                        }
-                        else{
-                            System.out.println("Employee is already in the list.");
-                        }
-                    }
-
-                    else if(currentToken.equals("AF")) {
-                        Fulltime fulltime = new Fulltime(name, department, date, payment);
-                        if(company.add(fulltime)) {
-                            System.out.println("Employee added.");
-                        }
-                        else{
-                            System.out.println("Employee is already in the list.");
-                        }
-                    }
-
-                    else if(currentToken.equals("AM")) {
-                        String managementCode = input.nextToken();
-                        //Check for a valid code
-                        if(managementCode != "1" || managementCode != "2" || managementCode != "3") {
-                            System.out.println("invalid management code.");
+                //Check for department validity
+                if(department.equals("IT") ||department.equals("ECE")||department.equals("CS")) {
+                    //check the date format
+                    if (new Date(date).isValid()) {
+                        //now add the specific token if the pay rate/salary is valid
+                        String payment = input.nextToken();
+                        if (Double.parseDouble(payment) < 0) {
+                            //Part time has a different message than full time.
+                            if (currentToken.equals("AP")) {
+                                System.out.println("Pay rate cannot be negative.");
+                            } else {
+                                System.out.println("Salary cannot be negative.");
+                            }
                             continue;
                         }
-                        Management management = new Management(name, department, date, payment, managementCode);
-                        if(company.add(management)) {
-                            System.out.println("Employee added.");
-                        }
-                        else{
-                            System.out.println("Employee is already in the list.");
+
+                        if (currentToken.equals("AP")) {
+                            Parttime parttime = new Parttime(name, department, date, payment, "0");
+                            //add it and check the return value
+                            if (company.add(parttime)) {
+                                System.out.println("Employee added.");
+                            } else {
+                                System.out.println("Employee is already in the list.");
+                            }
+                        } else if (currentToken.equals("AF")) {
+                            Fulltime fulltime = new Fulltime(name, department, date, payment);
+                            if (company.add(fulltime)) {
+                                System.out.println("Employee added.");
+                            } else {
+                                System.out.println("Employee is already in the list.");
+                            }
+                        } else if (currentToken.equals("AM")) {
+                            String managementCode = input.nextToken();
+                            //Check for a valid code
+                            if (managementCode != "1" || managementCode != "2" || managementCode != "3") {
+                                System.out.println("invalid management code.");
+                                continue;
+                            }
+                            Management management = new Management(name, department, date, payment, managementCode);
+                            if (company.add(management)) {
+                                System.out.println("Employee added.");
+                            } else {
+                                System.out.println("Employee is already in the list.");
+                            }
                         }
                     }
+                    else{
+                        System.out.println(date + " is not a valid date!");
+                    }
+                }
+                else{
+                    System.out.println("'" + department + "' is not a valid department code.");
                 }
 
-                else{
-                    System.out.println(date + " is not a valid date!");
-                }
             }
 
             //remove the given employee
@@ -124,6 +122,16 @@ public class PayrollProcessing {
 
             else if(currentToken.equals("PA")) {
 
+                if(company.getNumEmployee() == 0) {
+                    System.out.println("Employee database is empty.");
+                }
+
+                else{
+                    System.out.println("--Printing earning statements for all employees--");
+                    company.print();
+                }
+
+
             }
 
             else if(currentToken.equals("PH")) {
@@ -132,6 +140,9 @@ public class PayrollProcessing {
 
             else if(currentToken.equals("PD")) {
 
+            }
+            else{
+                System.out.println("Invalid command.");
             }
 
         }

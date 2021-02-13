@@ -186,5 +186,8 @@ public class Company {
         print();
     }
 
+    public int getNumEmployee() {
+        return numEmployee;
+    }
 
 }
