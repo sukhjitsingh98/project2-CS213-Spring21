@@ -4,8 +4,6 @@
  @author German Munguia, Sukhjit Singh
  */
 
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -14,7 +12,6 @@ public class PayrollProcessing {
         //Create the library which contains the array bag of book type.
         Company company = new Company();
         System.out.println("Running...");
-        int increment = 0;
 
         Scanner sc = new Scanner(System.in);
         //continuously loop and scan until the session is ended by the input of "Q".
