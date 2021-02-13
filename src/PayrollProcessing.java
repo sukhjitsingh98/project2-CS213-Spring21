@@ -117,12 +117,10 @@ public class PayrollProcessing {
             else if(currentToken.equals("C")) {
                 if(company.getNumEmployee() == 0){
                     System.out.println("Employee database is empty.");
-                    continue;
                 }
                 else {
                     company.processPayments();
                     System.out.println("Calculation of employee payments is done.");
-                    continue;
                 }
             }
 
@@ -139,11 +137,9 @@ public class PayrollProcessing {
                     }
                     else if(company.setHours(new Parttime(name, department, date, "0", workingHours))) {
                         System.out.println("Working hours set.");
-                        continue;
                     }
                     else{
                         System.out.println("Employee does not exist.");
-                        continue;
                     }
                 }
                 else{
