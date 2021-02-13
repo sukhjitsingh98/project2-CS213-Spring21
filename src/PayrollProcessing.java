@@ -132,6 +132,9 @@ public class PayrollProcessing {
                     if (Integer.parseInt(workingHours) < 0){
                         System.out.println("Working hours cannot be negative.");
                     }
+                    else if (Integer.parseInt(workingHours) > 100){
+                        System.out.println("Invalid Hours: over 100.");
+                    }
                     else if(company.setHours(new Parttime(name, department, date, "0", workingHours))) {
                         System.out.println("Working hours set.");
                     }
