@@ -20,6 +20,10 @@ public class Employee {
         return false;
     }
 
+    public void calculatePayment(){
+
+    }
+
     public Date getDateHired(){
         return profile.getDateHired();
     }

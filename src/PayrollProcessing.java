@@ -25,7 +25,7 @@ public class PayrollProcessing {
             }
 
             //if an employee is begin added
-            else if(currentToken.equals("AP") &&  input.countTokens() == 4|| currentToken.equals("AF") && input.countTokens() > 4 || currentToken.equals("AM") && input.countTokens() == 5) {
+            else if(currentToken.equals("AP") &&  input.countTokens() == 4|| currentToken.equals("AF") && input.countTokens() == 4 || currentToken.equals("AM") && input.countTokens() == 5) {
                 //Employee info.
                 String name = input.nextToken();
                 String department = input.nextToken();
@@ -132,7 +132,7 @@ public class PayrollProcessing {
                     if (Integer.parseInt(workingHours) < 0){
                         System.out.println("Working hours cannot be negative.");
                     }
-                    else if (Integer.parseInt(workingHours) > 100){
+                    else if (Integer.parseInt(workingHours) > Constants.MAXIMUM_HOURS){
                         System.out.println("Invalid Hours: over 100.");
                     }
                     else if(company.setHours(new Parttime(name, department, date, "0", workingHours))) {

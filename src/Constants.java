@@ -65,6 +65,8 @@ public final class Constants {
     public static final int STARTING_ARRAY_SIZE = 4;
     public static final int INCREASE_ARRAY_BY = 4;
     public static final int FIRST_DATE_LESS_THAN_SECOND = -1;
+    public static final float OVERTIME_SALARY_MULTIPLIER = 1.5f;
+    public static final int MAXIMUM_NON_OVERTIME_HOURS_PER_PERIOD = 80;
 
     //Constants for employee payment calculation
     public static final float TOTAL_PAY_PERIODS = 26;
@@ -76,5 +78,8 @@ public final class Constants {
     public static final float MANAGER_COMPENSATION = 5000;
     public static final float DEPARTMENT_HEAD_COMPENSATION = 5000;
     public static final float DIRECTOR_COMPENSATION = 5000;
+
+    //Constants for PayrollProcessing class
+    public static final int MAXIMUM_HOURS = 100;
 
 }

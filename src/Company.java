@@ -115,7 +115,7 @@ public class Company {
 
     public void processPayments() {
         for(int i = 0; i < numEmployee; i++) {
-           // emplist[i].calculatePayment();
+           emplist[i].calculatePayment();
         }
 
     } //process payments for all employees

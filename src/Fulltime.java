@@ -12,7 +12,7 @@ public class Fulltime extends Employee {
     @Override
     public String toString() {
         String result =
-                "Payment " + "insert payment here" + "::FULL TIME::Annual Salary $" + Float.toString(annualSalary);
+                "Payment " + singlePayPeriodSalary + "::FULL TIME::Annual Salary $" + Float.toString(annualSalary);
         return super.toString() + result;
     }
     @Override
@@ -39,7 +39,7 @@ public class Fulltime extends Employee {
 
 
     //Maybe create a private int and compute payment and return the value of that int in a get method?
-    //@Override
+    @Override
     public void calculatePayment() {
         singlePayPeriodSalary = annualSalary/Constants.TOTAL_PAY_PERIODS;
     }
