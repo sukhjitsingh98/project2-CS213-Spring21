@@ -25,18 +25,30 @@ public class PayrollProcessing {
                 break;
             }
 
-            //use input.nextToken() and input.tokenCount to obtain following input from each line
-
+            //if an employee is begin added
             else if(currentToken.equals("AP") &&  input.countTokens() == 4|| currentToken.equals("AF") && input.countTokens() > 4 || currentToken.equals("AM") && input.countTokens() == 5) {
+                //Employee info.
                 String name = input.nextToken();
                 String department = input.nextToken();
                 String date = input.nextToken();
 
                 //check the date format
                 if(new Date(date).isValid()) {
-                    //now add the specific token
+                    //now add the specific token if the pay rate/salary is valid
+                    String payment = input.nextToken();
+                    if(Double.parseDouble(payment) < 0) {
+                        //Part time has a different message than full time.
+                        if(currentToken.equals("AP")) {
+                            System.out.println("Pay rate cannot be negative.");
+                        }
+                        else {
+                            System.out.println("Salary cannot be negative.");
+                        }
+                        continue;
+                    }
+
                     if(currentToken.equals("AP")){
-                        Parttime parttime = new Parttime(name, department, date, input.nextToken(), "0");
+                        Parttime parttime = new Parttime(name, department, date, payment, "0");
                         //add it and check the return value
                         if(company.add(parttime)) {
                             System.out.println("Employee added.");
@@ -47,7 +59,7 @@ public class PayrollProcessing {
                     }
 
                     else if(currentToken.equals("AF")) {
-                        Fulltime fulltime = new Fulltime(name, department, date, input.nextToken());
+                        Fulltime fulltime = new Fulltime(name, department, date, payment);
                         if(company.add(fulltime)) {
                             System.out.println("Employee added.");
                         }
@@ -57,8 +69,13 @@ public class PayrollProcessing {
                     }
 
                     else if(currentToken.equals("AM")) {
-                        String salary = input.nextToken();
-                        Management management = new Management(name, department, date, salary, input.nextToken());
+                        String managementCode = input.nextToken();
+                        //Check for a valid code
+                        if(managementCode != "1" || managementCode != "2" || managementCode != "3") {
+                            System.out.println("invalid management code.");
+                            continue;
+                        }
+                        Management management = new Management(name, department, date, payment, managementCode);
                         if(company.add(management)) {
                             System.out.println("Employee added.");
                         }
@@ -73,8 +90,27 @@ public class PayrollProcessing {
                 }
             }
 
+            //remove the given employee
+            else if(currentToken.equals("R") && input.countTokens() == 3) {
+                //Employee info.
+                String name = input.nextToken();
+                String department = input.nextToken();
+                String date = input.nextToken();
 
-            else if(currentToken.equals("R")) {
+                if(new Date(date).isValid()) {
+
+                    if(company.remove(new Employee(name, department, date))) {
+                        System.out.println();
+                    }
+                    else{
+
+                    }
+
+                }
+
+                else{
+                    System.out.println(date + " is not a valid date!");
+                }
 
             }
 
