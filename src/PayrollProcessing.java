@@ -4,6 +4,8 @@
  @author German Munguia, Sukhjit Singh
  */
 
+import javax.sound.midi.Soundbank;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -97,17 +99,15 @@ public class PayrollProcessing {
                 String department = input.nextToken();
                 String date = input.nextToken();
 
+                //if the date is correctly formatted attempt to remove the employee.
                 if(new Date(date).isValid()) {
-
                     if(company.remove(new Employee(name, department, date))) {
-                        System.out.println();
+                        System.out.println("Employee Removed.");
                     }
                     else{
-
+                        System.out.println("Employee does not exist.");
                     }
-
                 }
-
                 else{
                     System.out.println(date + " is not a valid date!");
                 }
