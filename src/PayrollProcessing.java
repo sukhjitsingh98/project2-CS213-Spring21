@@ -58,17 +58,19 @@ public class PayrollProcessing {
                             } else {
                                 System.out.println("Employee is already in the list.");
                             }
-                        } else if (currentToken.equals("AF")) {
+                        }
+                        else if (currentToken.equals("AF")) {
                             Fulltime fulltime = new Fulltime(name, department, date, payment);
                             if (company.add(fulltime)) {
                                 System.out.println("Employee added.");
                             } else {
                                 System.out.println("Employee is already in the list.");
                             }
-                        } else if (currentToken.equals("AM")) {
+                        }
+                        else {
                             String managementCode = input.nextToken();
                             //Check for a valid code
-                            if (managementCode != "1" || managementCode != "2" || managementCode != "3") {
+                            if (Integer.parseInt(managementCode) < 1 || Integer.parseInt(managementCode) > 3) {
                                 System.out.println("invalid management code.");
                                 continue;
                             }
@@ -160,17 +162,30 @@ public class PayrollProcessing {
                     System.out.println("--Printing earning statements for all employees--");
                     company.print();
                 }
-
-
             }
 
             else if(currentToken.equals("PH")) {
 
+                if(company.getNumEmployee() == 0) {
+                    System.out.println("Employee database is empty.");
+                }
+                else{
+                    System.out.println("--Printing earning statements by date hired--");
+                    company.printByDate();
+                }
             }
 
             else if(currentToken.equals("PD")) {
 
+                if(company.getNumEmployee() == 0) {
+                    System.out.println("Employee database is empty.");
+                }
+                else{
+                    System.out.println("--Printing earning statements by department--");
+                    company.printByDepartment();
+                }
             }
+
             else{
                 System.out.println("Invalid command.");
             }
