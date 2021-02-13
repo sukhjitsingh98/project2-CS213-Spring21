@@ -1,17 +1,19 @@
 public class Management extends Fulltime {
     private int role;
     private float singlePayPeriodCompensation;
+    private float totalPay;
     private float annualCompensation;
 
     public Management(String name, String department, String dateHired, String annualSalary, String role){
         super(name, department, dateHired, annualSalary);
         this.role = Integer.parseInt(role);
-        this.annualCompensation = setCompensation();
+        annualCompensation = setCompensation();
+        singlePayPeriodCompensation = 0;
+        totalPay = 0;
     }
 
     @Override
     public String toString() {
-        calculatePayment();
         String result = "::" + managementRole() + " Compensation " + Float.toString(singlePayPeriodCompensation);
         return super.toString() + result;
     }
@@ -26,12 +28,16 @@ public class Management extends Fulltime {
         else if (!(obj instanceof Management)) {
             return false;
         }
+
+        /*
         //Type cast the given object and check if its data members are equal to this object's data members
         Management management = (Management) obj;
         if (management.getAnnualCompensation() == annualCompensation){
             return true;
         }
-        return false;
+         */
+        //return false;
+        return true;
     }
 
     //Maybe keep this? Maybe remove this? Might be useful?

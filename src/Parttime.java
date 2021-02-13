@@ -28,13 +28,15 @@ public class Parttime extends Employee {
         else if (!(obj instanceof Parttime)) {
             return false;
         }
+        /*
         //Type cast the given object and check if its data members are equal to this object's data members
         Parttime parttime = (Parttime) obj;
         if (parttime.getHourlyRate() == hourlyRate && parttime.getWorkingHours() == workingHours){
             return true;
         }
-        return false;
-
+        */
+        //return false;
+        return true;
     }
 
     /*

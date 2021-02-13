@@ -51,7 +51,7 @@ public class Profile {
         System.out.println(test2.equals(test3));
 
 
-        Parttime t1 = new Parttime("lastname, firstname", "ECE", "1/01/2020","22","40");
+        Parttime t1 = new Parttime("lastname, firstname", "ECE", "1/01/2020","22","0");
         Employee emp1 = t1;
 
         Fulltime t2 = new Fulltime("Washington, George", "CS", "02/02/2005", "90000");
@@ -75,6 +75,14 @@ public class Profile {
         company.printByDate();
         System.out.println("Department Print:");
         company.printByDepartment();
+
+        company.setHours(new Parttime("lastname, firstname", "ECE", "1/01/2020","0","40"));
+        System.out.println("");
+        company.print();
+
+        company.remove(new Parttime("lastname, firstname", "ECE", "1/01/2020","0","0"));
+        System.out.println("");
+        company.print();
     }
 
 }

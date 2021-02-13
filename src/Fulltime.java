@@ -1,10 +1,12 @@
 public class Fulltime extends Employee {
 
     private float annualSalary;
+    private float singlePayPeriodSalary;
 
     public Fulltime(String name, String department, String dateHired, String annualSalary){
         super(name, department, dateHired);
         this.annualSalary = Float.parseFloat(annualSalary);
+        singlePayPeriodSalary = 0;
     }
 
     @Override
@@ -23,21 +25,28 @@ public class Fulltime extends Employee {
         else if (!(obj instanceof Fulltime)) {
             return false;
         }
+        /*
         //Type cast the given object and check if its data members are equal to this object's data members
         Fulltime fulltime = (Fulltime) obj;
         if (fulltime.getAnnualSalary() == annualSalary){
             return true;
         }
-        return false;
+         */
 
+        //return false;
+        return true;
     }
 
-    /*
+
     //Maybe create a private int and compute payment and return the value of that int in a get method?
-    @Override
+    //@Override
     public void calculatePayment() {
+        singlePayPeriodSalary = annualSalary/Constants.TOTAL_PAY_PERIODS;
     }
-    */
+
+    public float getSinglePayPeriodSalary(){
+        return singlePayPeriodSalary;
+    }
 
     public float getAnnualSalary() {
         return annualSalary;

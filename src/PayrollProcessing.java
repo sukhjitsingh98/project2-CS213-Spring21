@@ -113,10 +113,40 @@ public class PayrollProcessing {
             }
 
             else if(currentToken.equals("C")) {
-
+                if(company.getNumEmployee() == 0){
+                    System.out.println("Employee database is empty.");
+                    continue;
+                }
+                else {
+                    company.processPayments();
+                    System.out.println("Calculation of employee payments is done.");
+                    continue;
+                }
             }
 
-            else if(currentToken.equals("S")) {
+            else if(currentToken.equals("S") && input.countTokens() == 4) {
+                //Employee info.
+                String name = input.nextToken();
+                String department = input.nextToken();
+                String date = input.nextToken();
+                String workingHours = input.nextToken();
+
+                if(new Date(date).isValid()) {
+                    if (Integer.parseInt(workingHours) < 0){
+                        System.out.println("Working hours cannot be negative.");
+                    }
+                    else if(company.setHours(new Parttime(name, department, date, "0", workingHours))) {
+                        System.out.println("Working hours set.");
+                        continue;
+                    }
+                    else{
+                        System.out.println("Employee does not exist.");
+                        continue;
+                    }
+                }
+                else{
+                    System.out.println(date + " is not a valid date!");
+                }
 
             }
 

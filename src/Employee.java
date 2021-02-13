@@ -10,6 +10,7 @@ public class Employee {
     public String toString() {
         return profile.toString();
     }
+
     @Override
     public boolean equals(Object obj) {
         Employee employee = (Employee) obj;
