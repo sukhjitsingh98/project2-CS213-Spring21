@@ -40,9 +40,10 @@ public class Employee {
         return false;
     }
 
-
-    public void calculatePayment( ){
-
+    /**
+     Skeleton class which is overridden in the subclasses.
+     */
+    public void calculatePayment() {
     }
 
     /**
