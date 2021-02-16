@@ -117,4 +117,8 @@ public class Management extends Fulltime {
         return 0;
 
     }
+
+    public float getCompensationSum() {
+        return singlePayPeriodCompensation + super.getAnnualSalary()/Constants.TOTAL_PAY_PERIODS;
+    }
 }
