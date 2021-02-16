@@ -56,7 +56,7 @@ public class Management extends Fulltime {
         return true;
     }
 
-    //Maybe keep this? Maybe remove this? Might be useful?
+
     @Override
     public float getAnnualSalary() {
         return super.getAnnualSalary();

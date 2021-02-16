@@ -40,7 +40,8 @@ public class Employee {
         return false;
     }
 
-    public void calculatePayment(){
+
+    public void calculatePayment( ){
 
     }
 

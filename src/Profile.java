@@ -73,50 +73,5 @@ public class Profile {
         return dateHired;
     }
 
-    //temporary testing
-    public static void main(String[] args) {
-        Profile test1 = new Profile("Last,First", "CS", "01/22/1999");
-        Profile test2 = new Profile("Obama,Barack", "ECE", "01/22/2008");
-        Profile test3 = new Profile("Obama,Barack", "ECE", "01/22/2008");
-        System.out.println(test2.toString());
-        System.out.println(test2.equals(test1));
-        System.out.println(test2.equals(test3));
-
-
-        Parttime t1 = new Parttime("lastname, firstname", "ECE", "1/01/2020","22","0");
-        Employee emp1 = t1;
-
-        Fulltime t2 = new Fulltime("Washington, George", "CS", "02/02/2005", "90000");
-        Employee emp2 = t2;
-
-        Fulltime t4 = new Fulltime("dodo, name", "IT", "02/02/2001", "10");
-        Employee emp4 = t4;
-
-        Management  t3 = new Management("Jefferson, Thomas", "ECE", "03/22/2020","50000","1");
-        Employee emp3 = t3;
-        System.out.println("Employee three: " + emp3.toString());
-
-        Company company = new Company();
-        company.add(emp4);
-        company.add(emp1);
-        company.add(emp2);
-        company.add(emp3);
-        System.out.println("Normal Print:");
-        company.print();
-        System.out.println("Date print:");
-        company.printByDate();
-        System.out.println("Department Print:");
-        company.printByDepartment();
-
-        company.setHours(new Parttime("lastname, firstname", "ECE", "1/01/2020","0","40"));
-        System.out.println("");
-        company.processPayments();
-        company.print();
-
-        company.remove(new Parttime("lastname, firstname", "ECE", "1/01/2020","0","0"));
-        System.out.println("");
-        company.print();
-    }
-
 }
 

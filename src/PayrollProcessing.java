@@ -120,6 +120,7 @@ public class PayrollProcessing {
 
             }
 
+            //will call the process payment method
             else if(currentToken.equals("C")) {
                 if(company.getNumEmployee() == 0){
                     System.out.println("Employee database is empty.");
@@ -130,6 +131,7 @@ public class PayrollProcessing {
                 }
             }
 
+            //Setting the hours of the employee, checks for min and manx values.
             else if(currentToken.equals("S") && input.countTokens() == Constants.TOKEN_COUNT_SET_NUMBER) {
                 //Employee info.
                 String name = input.nextToken();
@@ -157,6 +159,7 @@ public class PayrollProcessing {
 
             }
 
+            //For printing the entire list in no particular order
             else if(currentToken.equals("PA")) {
 
                 if(company.getNumEmployee() == 0) {
@@ -169,6 +172,7 @@ public class PayrollProcessing {
                 }
             }
 
+            //Printing by date method
             else if(currentToken.equals("PH")) {
 
                 if(company.getNumEmployee() == 0) {
@@ -180,6 +184,7 @@ public class PayrollProcessing {
                 }
             }
 
+            //Prints in order of department
             else if(currentToken.equals("PD")) {
 
                 if(company.getNumEmployee() == 0) {
@@ -191,7 +196,7 @@ public class PayrollProcessing {
                 }
             }
 
-            //Incase there is no input, ignore
+            //In case there is no input, ignore
             else if(currentToken.equals("")) {
 
             }
