@@ -48,8 +48,10 @@ public class Management extends Fulltime {
     @Override
     */
     public void calculatePayment() {
-        //super.calculatePayment();
+        super.calculatePayment();
+
         singlePayPeriodCompensation = annualCompensation/Constants.TOTAL_PAY_PERIODS;
+        super.addBonus(singlePayPeriodCompensation);
     }
 
     private String managementRole(){

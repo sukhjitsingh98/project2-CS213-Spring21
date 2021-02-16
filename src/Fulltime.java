@@ -12,7 +12,7 @@ public class Fulltime extends Employee {
     @Override
     public String toString() {
         String result =
-                "Payment " + singlePayPeriodSalary + "::FULL TIME::Annual Salary $" + Float.toString(annualSalary);
+                "Payment " + String.format("%.2f", singlePayPeriodSalary) + "::FULL TIME::Annual Salary $" + Float.toString(annualSalary);
         return super.toString() + result;
     }
     @Override
@@ -46,6 +46,10 @@ public class Fulltime extends Employee {
 
     public float getSinglePayPeriodSalary(){
         return singlePayPeriodSalary;
+    }
+
+    public void addBonus(float PeriodBonus) {
+        singlePayPeriodSalary += PeriodBonus;
     }
 
     public float getAnnualSalary() {

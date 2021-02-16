@@ -15,7 +15,7 @@ public class Parttime extends Employee {
     public String toString() {
 
         String result =
-                "Payment $" + singlePayPeriodSalary + "::PART TIME::Hourly Rate $" + getHourlyRate() + "::Hours worked this period: " +(int)getWorkingHours();
+                "Payment $" + String.format("%.2f", singlePayPeriodSalary) + "::PART TIME::Hourly Rate $" + getHourlyRate() + "::Hours worked this period: " +(int)getWorkingHours();
 
         return super.toString() + result;
 

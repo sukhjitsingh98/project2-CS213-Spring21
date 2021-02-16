@@ -4,7 +4,7 @@ public class Profile {
     private Date dateHired;
     @Override
     public String toString() {
-        String result = name + "::" + department + "::" + dateHired.getMonth() + "/" + dateHired.getDay() + "/" + dateHired.getYear() + "::"; //once the earnings portion is added this will be finished
+        String result = name + "::" + department + "::" + dateHired.getMonth() + "/" + dateHired.getDay() + "/" + dateHired.getYear() + "::";
 
         return result;
     }
