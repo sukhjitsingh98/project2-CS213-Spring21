@@ -24,7 +24,10 @@ public class PayrollProcessing {
         while(sc.hasNext()){
 
             StringTokenizer input = new StringTokenizer(sc.nextLine());
-            String currentToken = input.nextToken();
+            String currentToken = "";
+            if(input.hasMoreTokens()) {
+                currentToken = input.nextToken();
+            }
 
             if(currentToken.equals("Q")) {
                 break;
@@ -186,6 +189,11 @@ public class PayrollProcessing {
                     System.out.println("--Printing earning statements by department--");
                     company.printByDepartment();
                 }
+            }
+
+            //Incase there is no input, ignore
+            else if(currentToken.equals("")) {
+
             }
 
             else{
