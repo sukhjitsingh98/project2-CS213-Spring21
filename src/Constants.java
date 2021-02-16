@@ -81,5 +81,9 @@ public final class Constants {
 
     //Constants for PayrollProcessing class
     public static final int MAXIMUM_HOURS = 100;
+    public static final int TOKEN_COUNT_NON_MANAGEMENT_EMPLOYEE = 4;
+    public static final int TOKEN_COUNT_MANAGEMENT_EMPLOYEE = 5;
+    public static final int TOKEN_COUNT_REMOVE = 3;
+    public static final int TOKEN_COUNT_SET_NUMBER = 4;
 
 }

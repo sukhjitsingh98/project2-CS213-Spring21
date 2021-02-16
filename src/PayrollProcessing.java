@@ -25,7 +25,7 @@ public class PayrollProcessing {
             }
 
             //if an employee is begin added
-            else if(currentToken.equals("AP") &&  input.countTokens() == 4|| currentToken.equals("AF") && input.countTokens() == 4 || currentToken.equals("AM") && input.countTokens() == 5) {
+            else if(currentToken.equals("AP") &&  input.countTokens() == Constants.TOKEN_COUNT_NON_MANAGEMENT_EMPLOYEE|| currentToken.equals("AF") && input.countTokens() == Constants.TOKEN_COUNT_NON_MANAGEMENT_EMPLOYEE || currentToken.equals("AM") && input.countTokens() == Constants.TOKEN_COUNT_MANAGEMENT_EMPLOYEE) {
                 //Employee info.
                 String name = input.nextToken();
                 String department = input.nextToken();
@@ -67,7 +67,7 @@ public class PayrollProcessing {
                         else {
                             String managementCode = input.nextToken();
                             //Check for a valid code
-                            if (Integer.parseInt(managementCode) < 1 || Integer.parseInt(managementCode) > 3) {
+                            if (Integer.parseInt(managementCode) < Constants.MANAGER || Integer.parseInt(managementCode) > Constants.DIRECTOR) {
                                 System.out.println("invalid management code.");
                                 continue;
                             }
@@ -90,7 +90,7 @@ public class PayrollProcessing {
             }
 
             //remove the given employee
-            else if(currentToken.equals("R") && input.countTokens() == 3) {
+            else if(currentToken.equals("R") && input.countTokens() == Constants.TOKEN_COUNT_REMOVE) {
                 //Employee info.
                 String name = input.nextToken();
                 String department = input.nextToken();
@@ -121,7 +121,7 @@ public class PayrollProcessing {
                 }
             }
 
-            else if(currentToken.equals("S") && input.countTokens() == 4) {
+            else if(currentToken.equals("S") && input.countTokens() == Constants.TOKEN_COUNT_SET_NUMBER) {
                 //Employee info.
                 String name = input.nextToken();
                 String department = input.nextToken();
