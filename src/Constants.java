@@ -76,8 +76,8 @@ public final class Constants {
     public static final int DEPARTMENT_HEAD = 2;
     public static final int DIRECTOR = 3;
     public static final float MANAGER_COMPENSATION = 5000;
-    public static final float DEPARTMENT_HEAD_COMPENSATION = 5000;
-    public static final float DIRECTOR_COMPENSATION = 5000;
+    public static final float DEPARTMENT_HEAD_COMPENSATION = 9500;
+    public static final float DIRECTOR_COMPENSATION = 12000;
 
     //Constants for PayrollProcessing class
     public static final int MAXIMUM_HOURS = 100;

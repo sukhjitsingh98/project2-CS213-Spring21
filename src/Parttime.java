@@ -1,16 +1,36 @@
+/**
+ This class defines the abstract data type Parttime, which encapsulates the data fields and methods of a part time
+ employee.
+ Contains getters and setters for the Parttime fields.
+ @author German Munguia, Sukhjit Singh
+ */
+
 public class Parttime extends Employee {
 
     private float hourlyRate;
     private float workingHours;
     private float singlePayPeriodSalary;
 
+    /**
+     Constructor used to generate a Parttime object using the given parameters.
+     @param name of the employee.
+     @param department the employee works in.
+     @param dateHired the starting date of the employee.
+     @param hourlyRate of the employee (Pay rate per hour).
+     @param workingHours of the employee (Hours the employee worked)
+     */
     public Parttime(String name, String department, String dateHired, String hourlyRate, String workingHours){
-        super(name, department, dateHired);
+        super(name, department, dateHired); //Extend the properties of the Employee class
         this.hourlyRate = Float.parseFloat(hourlyRate);
         this.workingHours = Float.parseFloat(workingHours);
-        singlePayPeriodSalary = 0;
+        singlePayPeriodSalary = 0; //Employee payment not calculated yet so default pay is $0.00
     }
 
+    /**
+     Returns a String with the parttime fields in a specified format.
+     @return String with the employee's profile data concatenated with the singlePayPeriod, hourlyRate, and
+     workingHours fields
+     */
     @Override
     public String toString() {
 
@@ -20,6 +40,12 @@ public class Parttime extends Employee {
         return super.toString() + result;
 
     }
+
+    /**
+     Compares the given Employee with this Parttime employee based on its name, department, and dateHired.
+     @param obj the given employee who's data members will be compared
+     @return true if the name, department, dateHired, and class type of both employees are equal, false otherwise
+     */
     @Override
     public boolean equals(Object obj) {
         //Check if super class is equal to the given object
@@ -30,18 +56,15 @@ public class Parttime extends Employee {
         else if (!(obj instanceof Parttime)) {
             return false;
         }
-        /*
-        //Type cast the given object and check if its data members are equal to this object's data members
-        Parttime parttime = (Parttime) obj;
-        if (parttime.getHourlyRate() == hourlyRate && parttime.getWorkingHours() == workingHours){
-            return true;
-        }
-        */
-        //return false;
         return true;
     }
 
-
+    /**
+     Method to calculate the payment for one pay period of this employee based on the working hours and hourly rate.
+     If the hours worked exceeds 80, the employee is given overtime pay equal to 1.5 times the hourly rate for the
+     extra hours worked. The remaining hours are then multiplied by the hourly rate to calculate the regular pay.
+     Both payments are summed and assigned to the singlePayPeriodSalary floating point variable.
+     */
     @Override
     public void calculatePayment() {
         singlePayPeriodSalary = 0;
@@ -56,16 +79,25 @@ public class Parttime extends Employee {
         singlePayPeriodSalary += currentHours * hourlyRate;
     }
 
-
-    //Maybe int parameter, maybe String, we shall decide when the time comes for implementation
+    /**
+     Method which sets the working hours of this Employee using the given floating point parameter.
+     @param workingHours of the employee
+     */
     public void setWorkingHours(float workingHours) {
         this.workingHours = workingHours;
     }
 
+    /**
+     Returns a floating point representation of the working hours of this employee.
+     @return workingHours of the employee
+     */
     public float getWorkingHours(){
         return workingHours;
     }
-
+    /**
+     Returns a floating point representation of the hourly pay rate of this employee.
+     @return hourlyRate of the employee
+     */
     public float getHourlyRate(){
         return hourlyRate;
     }

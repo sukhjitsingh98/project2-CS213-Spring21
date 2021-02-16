@@ -1,7 +1,22 @@
+/**
+ The Company class defines the abstract Company type which contains the array consisting of Employee class objects.
+ Contains constructors to generate Company objects with an empty array to hold Employee class objects.
+ The class allows for Employee objects to be removed, added, and the data members of employees to be changed, the
+ earnings of employees to be computed, and can print the earnings of employees based on their current order in the
+ array, by date hired, and by the employee's department.
+ The employee array length grows with the addition of employees.
+
+ @author German Munguia, Sukhjit Singh
+ */
+
 public class Company {
     private Employee[] emplist;
     private int numEmployee;
 
+    /**
+     Constructor used to generate a Company object with an array of employees of capacity 4.
+     The numEmployee data member initially set to zero.
+     */
     Company() {
         emplist = new Employee[Constants.STARTING_ARRAY_SIZE];
         numEmployee = 0;
@@ -96,6 +111,12 @@ public class Company {
         return true;
     } //maintain the original sequence
 
+    /**
+     Set the working hours of the given part time employee from the employee array.
+     Use the find() method to check if the employee is inside the employee array.
+     @param employee The employee that is being removed from the bag
+     @return true if the employee's working hours were set', false otherwise
+     */
     public boolean setHours(Employee employee) {
         //find the employee index with the helper method
         int employeeIndex = find(employee);
@@ -106,13 +127,16 @@ public class Company {
         }
         else {
             Parttime parttime = (Parttime) emplist[employeeIndex];
-            //NOTE: In the PayrollProcessing class just make a new object that stores the working hours and pass
-            // that as a parameter into this method (DELETE THIS NOTE WHEN DONE).
+            //Extract the working hours from the given employee and set them for the employee found in the array.
             parttime.setWorkingHours(((Parttime) employee).getWorkingHours());
             return true;
         }
     } //set working hours for a part time
 
+    /**
+     Calculate the payment for each employee from the employee array for a single pay period.
+     This method calls the calculatePayment() method for each employee.
+     */
     public void processPayments() {
         for(int i = 0; i < numEmployee; i++) {
            emplist[i].calculatePayment();
@@ -120,16 +144,18 @@ public class Company {
 
     } //process payments for all employees
 
-    //print earning statements for all employees
+    /**
+     Print the earning statement for each employee from the employee array.
+     This method calls the toString() method for each employee.
+     */
     public void print() {
         for(int i = 0; i < numEmployee; i++){
             System.out.println(emplist[i].toString());
         }
     }
 
-
     /**
-     Sort the bag from smallest serial number to largest.
+     Sort the employee array from lexicographically based on the employee department name (CS, ECE, IT).
      */
     private void sortEmployeeDepartment(){
         for (int i = 1; i < emplist.length; i++) {
@@ -145,8 +171,11 @@ public class Company {
         }
     }
 
-    //print earning statements by department
-    //CS, ECE, IT, alphabetical order.
+    /**
+     Print the earning statement for each employee from the employee array lexicographically based on the employee department name.
+     This method calls the sortEmployeeDepartment() helper method to assist in sorting the employee array.
+     After sorting is complete the method calls the print() method to print the employee array.
+     */
     public void printByDepartment() {
         if(numEmployee > 1) {
             //first sort the employees by department
@@ -157,7 +186,7 @@ public class Company {
     }
 
     /**
-     Sort the bag of employees from oldest to most recent.
+     Sort the employee array based on the starting date of each employee from oldest to most recent.
      */
     private void sortEmployeeHiredDateAscending(){
         for (int i = 1; i < emplist.length; i++) {
@@ -174,10 +203,12 @@ public class Company {
     }
 
     /**
-     Print the bag of employees from oldest to newest.
-     call the sort by date method to sort and then the print method to print.
+     Print the earning statement for each employee from the employee array based on the starting date of each employee
+     from oldest to most recent.
+     This method calls the sortEmployeeHiredDateAscending() helper method to assist in sorting the employee array.
+     After sorting is complete the method calls the print() method to print the employee array.
      */
-    public void printByDate() {  //print earning statements by date hired
+    public void printByDate() {
         if (numEmployee > 1) {
             //call the sorting method
             sortEmployeeHiredDateAscending();
@@ -186,6 +217,10 @@ public class Company {
         print();
     }
 
+    /**
+     Method to return the number of employees in the employee array.
+     @return numEmployee which stores the number of employees in the employee array.
+     */
     public int getNumEmployee() {
         return numEmployee;
     }

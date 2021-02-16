@@ -1,6 +1,7 @@
 /**
  PayrollProcessing class creates an interface in which the user can interact with the Employee profiles.
  User interacts through inputs using a scanner.
+
  @author German Munguia, Sukhjit Singh
  */
 
@@ -8,6 +9,11 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class PayrollProcessing {
+
+    /**
+     Initiates the interface and awaits and responds to the scanned input.
+     Session does not terminate until the Q command is received.
+     */
     public void run() {
         //Create the library which contains the array bag of book type.
         Company company = new Company();
