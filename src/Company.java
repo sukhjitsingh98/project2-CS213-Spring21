@@ -129,7 +129,7 @@ public class Company {
             Parttime parttime = (Parttime) emplist[employeeIndex];
             //Extract the working hours from the given employee and set them for the employee found in the array.
 
-            if(parttime.getWorkingHours() > Constants.MAXIMUM_HOURS || parttime.getWorkingHours() < 0) {
+            if(((Parttime) employee).getWorkingHours() > Constants.MAXIMUM_HOURS || ((Parttime) employee).getWorkingHours() < 0) {
                 return false;
             }
 

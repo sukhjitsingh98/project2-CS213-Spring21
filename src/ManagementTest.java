@@ -6,6 +6,8 @@ public class ManagementTest {
 
     @Test
     void calculatePayment() {
+        Company company = new Company();
+
 
     }
 }
