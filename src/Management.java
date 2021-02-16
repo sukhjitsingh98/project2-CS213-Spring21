@@ -12,7 +12,7 @@ public class Management extends Fulltime {
 
     @Override
     public String toString() {
-        String result = "::" + managementRole() + " Compensation " + Float.toString(singlePayPeriodCompensation);
+        String result = "::" + managementRole() + " Compensation $" + String.format("%.2f", singlePayPeriodCompensation) ;
         return super.toString() + result;
     }
 
