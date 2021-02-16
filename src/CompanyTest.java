@@ -1,3 +1,10 @@
+/**
+ CompanyTest class is a JUnit test class which tests the add(), remove(), and setHours() methods found in the Company class.
+ The return values of the classes can be compared using assertTrue() and assertFalse().
+ @author German Munguia, Sukhjit Singh
+ */
+
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

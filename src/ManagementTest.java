@@ -1,3 +1,10 @@
+/**
+ ManagementTest class is a JUnit test class which tests the calculatePayment() method found in the Management class.
+ assertEquals() is used to test the expected value of the calculated payment which is returned through a getter.
+ @author German Munguia, Sukhjit Singh
+ */
+
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
