@@ -17,7 +17,7 @@ public class Company {
      Constructor used to generate a Company object with an array of employees of capacity 4.
      The numEmployee data member initially set to zero.
      */
-    Company() {
+    public Company() {
         emplist = new Employee[Constants.STARTING_ARRAY_SIZE];
         numEmployee = 0;
     }
