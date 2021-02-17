@@ -93,7 +93,7 @@ public class Management extends Fulltime {
         else if(role == Constants.DIRECTOR){
             return "Director";
         }
-        return null;
+        return "";
     }
 
     /**

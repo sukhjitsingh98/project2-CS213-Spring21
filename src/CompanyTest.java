@@ -21,10 +21,13 @@ public class CompanyTest {
         Employee e3 = new Employee("My,Name", "IT", "12/12/2012");
         Employee e4 = new Employee("G,M", "CS", "04/28/1999");
         Employee e5 = new Employee("S,S", "ECE", "01/01/2000");
+        Employee e6 = new Employee("Last,First", "CS", "04/26/2000");
         company.add(e2);
         company.add(e3);
         company.add(e4);
         assertTrue(company.add(e5));   //Add Test case #3: Add an Employee once the initial capacity has been reached and the grow() method is called.
+        //Add Test Case #4: Add employee with the same name and department as e1 but different date hired.
+        assertTrue(company.add(e6));
     }
 
     @Test
@@ -36,6 +39,11 @@ public class CompanyTest {
         assertFalse(company.add(e1));
         assertTrue(company.remove(e1)); //Remove Test Case #2: Remove an existing employee.
         assertFalse(company.remove(e1)); //Remove Test Case #3: Attempt to remove the same employee twice.
+
+        Employee e2 = new Employee("Last,First", "CS", "04/26/2000");
+        company.add(e2);
+        //Remove Test Case #4: Remove employee with the same name and department as e1 but different date hired.
+        assertTrue(company.remove(e2));
     }
 
     @Test

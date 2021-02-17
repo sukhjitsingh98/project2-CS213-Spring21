@@ -28,5 +28,12 @@ public class ManagementTest {
         //Test Case 3: Check the period payment of a manager with a director position with the accurate value.
         assertEquals("4307.69", String.format("%.2f", m3.getCompensationSum()));
 
+        Management m4 = new Management("S,S", "ECE", "1/01/2000","80000","0");
+        m4.calculatePayment();
+        /*Test Case 4: Check the period payment of a manager with an invalid role code, no compensation should be
+        applied and only the period salary should be returned. While PayrollProcessing class does not allow such a
+        role to be created, it is still tested to see the outcome*/
+        assertEquals("3076.92", String.format("%.2f", m4.getCompensationSum()));
+
     }
 }
