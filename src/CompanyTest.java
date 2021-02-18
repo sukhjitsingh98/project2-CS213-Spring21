@@ -25,9 +25,12 @@ public class CompanyTest {
         company.add(e2);
         company.add(e3);
         company.add(e4);
+
         assertTrue(company.add(e5));   //Add Test case #3: Add an Employee once the initial capacity has been reached and the grow() method is called.
+
         //Add Test Case #4: Add employee with the same name and department as e1 but different date hired.
         assertTrue(company.add(e6));
+
         Employee e7 = new Management("some,Name", "ECE", "10/12/2021", "45000","2");
         assertTrue( company.add(e7)); //Add Test case #4: Add an normal Employee of Management instance type.
 
