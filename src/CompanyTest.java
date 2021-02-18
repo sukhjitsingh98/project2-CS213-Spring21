@@ -17,27 +17,22 @@ public class CompanyTest {
         Employee e1 = new Employee("Last,First", "CS", "01/22/1999");
         assertTrue(company.add(e1));    //Add test case #1: Add an employee into an empty company.
         assertFalse(company.add(e1));   //Add Test case #2: Add an already existing Employee.
-
         Employee e2 = new Employee("First,Last", "IT", "12/12/2012");
         Employee e3 = new Employee("My,Name", "IT", "12/12/2012");
         Employee e4 = new Employee("G,M", "CS", "04/28/1999");
         Employee e5 = new Employee("S,S", "ECE", "01/01/2000");
         Employee e6 = new Employee("Last,First", "CS", "04/26/2000");
-        Management e7 = new Management("some,Name", "ECE", "10/12/2020", "45000", "2");
-        Fulltime e8 = new Fulltime("myLast,myFirst", "CS", "11/1/2020","1000000");
-        Parttime e9 = new Parttime("theirLast,theirFirst", "IT", "5/26/2010","12.5","0");
         company.add(e2);
         company.add(e3);
         company.add(e4);
-
         assertTrue(company.add(e5));   //Add Test case #3: Add an Employee once the initial capacity has been reached and the grow() method is called.
-
         //Add Test Case #4: Add employee with the same name and department as e1 but different date hired.
         assertTrue(company.add(e6));
+        Employee e7 = new Management("some,Name", "ECE", "10/12/2021", "45000","2");
+        assertTrue( company.add(e7)); //Add Test case #4: Add an normal Employee of Management instance type.
 
-        assertTrue(company.add(e7)); //Add Test case #5: Add an employee of the Management instance type.
-        assertTrue(company.add(e8)); //Add Test case #6: Add an employee of the Fulltime instance type.
-        assertTrue(company.add(e9)); //Add Test case #7: Add an employee of the Parttime instance type.
+        Employee e8 = new Fulltime("myLast, myFirst", "CS", "11/1/2021", "1000000");
+        assertTrue(company.add(e8)); //Add Test case #4: Add an normal Employee of Fulltime instance type.
     }
 
     @Test
@@ -54,16 +49,15 @@ public class CompanyTest {
         company.add(e2);
         //Remove Test Case #4: Remove employee with the same name and department as e1 but different date hired.
         assertTrue(company.remove(e2));
-
-        Management e3 = new Management("some,Name", "ECE", "10/12/2020", "450000", "2");
-        Fulltime e4 = new Fulltime("myLast,myFirst", "CS", "11/1/2020","1000000");
-        Parttime e5 = new Parttime("theirLast,theirFirst", "IT", "5/26/2010","12.5","0");
+     
+        Employee e3 = new Parttime("G,M", "CS", "01/22/1999","10","100");
         company.add(e3);
+        assertTrue(company.setHours(e3)); //SetHours Test Case #5: Set the hours to the maximum value.
+
+        Employee e4 = new Parttime("S,S", "CS", "01/22/1999","10","101");
         company.add(e4);
-        company.add(e5);
-        assertTrue(company.remove(e3)); //Remove Test Case #5: Remove a management employee
-        assertTrue(company.remove(e4)); //Remove Test Case #6: Remove a Fulltime employee
-        assertTrue(company.remove(e5)); //Remove Test Case #7: Remove a Parttime employee
+        assertFalse(company.setHours(e4)); //SetHours Test Case #6: Set the hours above the maximum value. 
+     
     }
 
     @Test
