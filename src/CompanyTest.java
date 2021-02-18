@@ -49,6 +49,15 @@ public class CompanyTest {
         company.add(e2);
         //Remove Test Case #4: Remove employee with the same name and department as e1 but different date hired.
         assertTrue(company.remove(e2));
+     
+        Employee e3 = new Parttime("G,M", "CS", "01/22/1999","10","100");
+        company.add(e3);
+        assertTrue(company.setHours(e3)); //SetHours Test Case #5: Set the hours to the maximum value.
+
+        Employee e4 = new Parttime("S,S", "CS", "01/22/1999","10","101");
+        company.add(e4);
+        assertFalse(company.setHours(e4)); //SetHours Test Case #6: Set the hours above the maximum value. 
+     
     }
 
     @Test
