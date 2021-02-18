@@ -32,7 +32,7 @@ public class CompanyTest {
         assertTrue( company.add(e7)); //Add Test case #4: Add an normal Employee of Management instance type.
 
         Employee e8 = new Fulltime("myLast, myFirst", "CS", "11/1/2021", "1000000");
-        assertTrue(company.add(e7)); //Add Test case #4: Add an normal Employee of Fulltime instance type.
+        assertTrue(company.add(e8)); //Add Test case #4: Add an normal Employee of Fulltime instance type.
     }
 
     @Test
